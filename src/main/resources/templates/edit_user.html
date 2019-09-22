@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>UserRegistration</title>
+<link th:href="@{/bootstrap4.3.1/css/bootstrap.min.css}" rel='stylesheet' type='text/css' />
+</head>
+<body>
+<div align="center">
+    <h1>Edit user</h1><br>
+    
+    <form action="#" th:action="@{/success}" th:object="${user}" method="post">
+    <table class="table">
+         <tr>
+            <td>User Id</td>
+            <td><input type="text" th:field="*{id}" readonly="readonly"/></td>
+        </tr>
+         <tr>
+            <td>User Id</td>
+            <td><input type="text" th:field="*{fullname}" readonly="readonly"/></td>
+        </tr>
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" th:field="*{username}" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" th:field="*{email}" /></td>
+        </tr>
+        <!-- <tr>
+            <td>Role</td>
+            <td><input type="text" th:field="*{role}" /></td>
+        </tr>-->
+        <tr>
+            <td>Role</td>
+            <td><select  th:field="*{role}">
+			    <option value="ADMIN">ADMIN</option>
+			    <option value="USER">USER</option>
+       </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+    </form>
+
+</div>
+</body>
+</html>

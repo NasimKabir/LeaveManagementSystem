@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Adminpage</title>
+ <link th:href="@{/bootstrap4.3.1/css/bootstrap.min.css}" rel='stylesheet' type='text/css' />
+ <link th:href="@{/css/custom.css}" rel='stylesheet' type='text/css' />
+</head>
+<body >
+<table class="table ">
+     <thead>
+     <tr>
+	     <th>UserId</th>
+	     <th>FullName</th>
+	     <th>UserName</th>
+	     <th>Email</th>
+	     <th>Role</th>
+	     <th>Active</th>
+	     <th>Action</th>
+     </tr>
+     </thead>
+     <tbody>
+         <tr th:each="userlist:${user}">
+             <td th:text="${userlist.id}">User id</td>
+             <td th:text="${userlist.fullname}">User FullName</td>
+             <td th:text="${userlist.username}">UserName</td>
+             <td th:text="${userlist.email}">Email</td>
+             <td th:text="${userlist.role}">Role</td>
+             <td th:text="${userlist.active}">Active</td>
+             <td>
+             <a th:href="@{'/edit/' + ${userlist.id}}">Edit</a>
+             <td><a th:href="@{'/delete/' + ${userlist.id}}">Delete</a></td>
+
+         </tr>
+     </tbody>
+</table>
+</body>
+</html>

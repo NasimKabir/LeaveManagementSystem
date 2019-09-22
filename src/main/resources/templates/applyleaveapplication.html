@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<meta charset="ISO-8859-1">
+<title>UserRegistration</title>
+
+</head>
+<body>
+	<div layout:fragment="content" class="container mySpace">
+<div align="center">
+		<h1>Leave application</h1>
+		<br>
+
+		<form action="#" th:action="@{/leave_success}" th:object="${leaveRequest}"
+			method="post">
+			<table class="table">
+			<tr>
+					<td>Enter Employee Id</td>
+					<td><input th:type="text" th:field="*{users.user_id}" /></td>
+				</tr>
+				<tr>
+					<td>FromDate</td>
+					<td><input th:type="text" required th:field="*{fromDate}" /></td>
+				</tr>
+				<tr>
+					<td>ToDate</td>
+					<td><input th:type="text" required  th:field="*{toDate}" /></td>
+				</tr>
+				<tr>
+					<td>Leave Type</td>
+					<td><select th:field="*{leaveType}">
+							<option value="">select</option>
+							<option value="Sick">Sick</option>
+							<option value="Family">Family</option>
+					</select></td>
+				</tr>
+				<tr>
+					<td>Reason</td>
+					<td><input th:type="text" th:field="*{reason}" /></td>
+				</tr>
+				<tr>
+					<td>Duration</td>
+					<td><input th:type="text" th:field="*{duration}" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" value="Submit" /></td>
+				</tr>
+			</table>
+		</form>
+</div>
+	</div>
+</body>
+</html>

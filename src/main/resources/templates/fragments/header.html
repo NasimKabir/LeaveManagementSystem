@@ -1,0 +1,32 @@
+<header th:fragment="header" xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org"
+ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    
+    
+    <!-- Static navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container d-flex align-items-center">
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
+	         <a class="navbar-brand" href="/">LMS</a>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav mr-auto">
+	        	<li class="nav-item active"><a href="/" class="nav-link pl-0">Home</a></li>
+	        	<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a href="/createuser" class="nav-link">Create User</a></li>
+	        	<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a href="/viewUser" class="nav-link">View User</a></li>
+	        	<li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item"><a href="/jsoncalendar" class="nav-link">Calendar</a></li>
+	        	<li sec:authorize="hasAnyRole('ROLE_SUPERVISOR','ROLE_USER')" class="nav-item"><a href="/calendar" class="nav-link">View Calendar</a></li>
+	        	<li sec:authorize="hasAnyRole('ROLE_SUPERVISOR','ROLE_USER')" class="nav-item"><a href="/apply_leave" class="nav-link">Apply Leave</a></li>
+	        	<li sec:authorize="hasAnyRole('ROLE_SUPERVISOR')" class="nav-item"><a href="/view_leave" class="nav-link">Leave Application List</a></li>
+	        	<li class="nav-item"><a href="/leaveStatus" class="nav-link">Leave Status</a></li>
+	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	        	<li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
+	          <li class="nav-item"><a th:href="@{/logout}" href="#" class="nav-link">Logout</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+                   
+</header>

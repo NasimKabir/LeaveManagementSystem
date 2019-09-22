@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{fragments/main_layout}">
+<head>
+<meta charset="ISO-8859-1">
+<title>UserRegistration</title>
+<!-- <link th:href="@{/bootstrap4.3.1/css/bootstrap.min.css}"
+	rel='stylesheet' type='text/css' /> -->
+</head>
+<body>
+	<div layout:fragment="content" class="container mySpace">
+	<div align="center">
+		<h1>Create new user</h1>
+		<br>
+		 <form action="#" th:action="@{/success}" th:object="${user}" method="post">
+    <table class="table">
+        <tr>
+            <td>UserName</td>
+            <td><input type="text" th:field="*{username}" /></td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td><input type="password" th:field="*{password}" /></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td><input type="email" th:field="*{email}" /></td>
+        </tr>
+        <tr>
+            <td>Role</td>
+            <td><select  th:field="*{roles.name}" >
+                <option th:value="--" th:text="---"></option>
+			    <option  th:value="ROLE_ADMIN" th:text="ADMIN"></option>
+			    <option th:value="ROLE_SUPERVISOR" th:text="SUPERVISOR"></option>
+			    <option th:value="ROLE_USER" th:text="USER"></option>
+          </select></td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td><select  th:field="*{departments.name}">
+			    <option th:value="'SWE'" th:text="SWE"></option>
+			    <option th:value="'CSE'" th:text="CSE"></option>
+			    <option th:value="'ETE'" th:text="ETE"></option>
+			    <option th:value="'CSSE'" th:text="CSSE"></option>
+			    <option th:value="'BBA'" th:text="BBA"></option>
+          </select></td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+    </form>
+	</div>
+	</div>
+</body>
+</html>
