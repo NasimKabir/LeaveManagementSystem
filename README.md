@@ -5,3 +5,5 @@ Leave Application page
 Admin page
 Supervisor Page
 Employee Page
+Calendar Event Crud Operation
+Application Accept/Reject
