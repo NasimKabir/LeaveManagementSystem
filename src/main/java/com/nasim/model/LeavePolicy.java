@@ -15,20 +15,9 @@ public class LeavePolicy {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	private String leaveType;
+    private String leaveType;
+	private String leavePolicyDescription;
 	
 	
-	
-	public LeavePolicy() {
-		super();
-	}
-
-
-
-	public LeavePolicy(String leaveType) {
-		super();
-		this.leaveType = leaveType;
-	}
 	
 }

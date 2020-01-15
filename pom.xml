@@ -13,6 +13,7 @@
 	<artifactId>LeaveManagement</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>LeaveManagement</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
@@ -32,6 +33,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.4</version>
 		</dependency>
 		<dependency>
 			<groupId>org.projectlombok</groupId>

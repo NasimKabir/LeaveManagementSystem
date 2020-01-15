@@ -1,17 +1,17 @@
 package com.nasim.model;
 
-import java.util.List;
-import java.util.Set;
-
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Transient;
+
+import org.springframework.lang.Nullable;
+import org.springframework.web.multipart.MultipartFile;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -34,6 +34,14 @@ public class Employee_information {
 
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Role roles;
+	/*
+	 * @Column(nullable=false) private String profilePic;
+	 * 
+	 * @Column(nullable=false)
+	 * 
+	 * @Transient private MultipartFile userImage;
+	 */
+	
 	
 	
 	

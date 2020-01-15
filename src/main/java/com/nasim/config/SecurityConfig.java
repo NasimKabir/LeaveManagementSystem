@@ -19,8 +19,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
-//	@Autowired
-//	private UserDetailsService userDetailsService;
+
 	@Autowired
 	private DataSource dataSource;
 
@@ -45,11 +44,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 		
 		http .authorizeRequests().antMatchers("/static/**").permitAll();
-		http .authorizeRequests().antMatchers("/createuser").hasRole("ADMIN");
+		//http .authorizeRequests().antMatchers("/createuser").hasRole("ADMIN");
 		http .authorizeRequests().antMatchers("/viewUser").hasRole("ADMIN");
 		http .authorizeRequests().antMatchers("/jsoncalendar").hasRole("ADMIN");
+		http .authorizeRequests().antMatchers("/view_granteleave").hasRole("ADMIN");
+		http .authorizeRequests().antMatchers("/leavepolicy").hasRole("ADMIN");
+		http .authorizeRequests().antMatchers("/edit/**").hasRole("SUPERVISOR");
+		http .authorizeRequests().antMatchers("/commentssuccess").hasRole("SUPERVISOR");
+		http .authorizeRequests().antMatchers("/view_leave").hasRole("SUPERVISOR");
 		http .authorizeRequests().antMatchers("/apply_leave").hasAnyRole("SUPERVISOR","USER");
-		http .authorizeRequests().antMatchers("/calendar").hasAnyRole("SUPERVISOR","USER")
+		http .authorizeRequests().antMatchers("/leaveStatus").hasAnyRole("SUPERVISOR","USER");
+		http .authorizeRequests().antMatchers("/calendar").hasAnyRole("SUPERVISOR","USER");
+		http .authorizeRequests().antMatchers("/profile").hasAnyRole("SUPERVISOR","USER")
 		.and().exceptionHandling().accessDeniedPage("/access-denied");
 		
 		 http.authorizeRequests()   

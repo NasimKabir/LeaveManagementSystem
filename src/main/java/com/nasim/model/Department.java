@@ -23,4 +23,9 @@ public class Department {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private Employee_information emp;
 
+	@Override
+	public String toString() {
+		return "Department [depart_id=" + depart_id + ", name=" + name + ", emp=" + emp + "]";
+	}
+
 }

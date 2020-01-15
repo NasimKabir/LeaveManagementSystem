@@ -40,6 +40,12 @@ public class Role {
 	}
 
 
+	@Override
+	public String toString() {
+		return "Role [roles_id=" + roles_id + ", name=" + name + "]";
+	}
+
+
 	
 	
 	

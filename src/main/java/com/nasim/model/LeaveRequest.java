@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.OrderBy;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -31,20 +32,12 @@ public class LeaveRequest {
 
 	private String comments;
 	
-	private String AcceptRejectFlag;
+	private String acceptRejectFlag;
 	
 	@OneToOne
 	private Employee_information users;
 	
-	public LeaveRequest(Date fromDate, Date toDate, String leaveType, String reason, int duration) {
-		super();
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-		this.leaveType = leaveType;
-		this.reason = reason;
-		this.duration = duration;
-		
-	}
+	
 
 
 	public LeaveRequest() {
@@ -52,20 +45,16 @@ public class LeaveRequest {
 	}
 
 
-	public LeaveRequest(Date fromDate, Date toDate, String leaveType, String reason, int duration,
-			String acceptRejectFlag, Employee_information users) {
-		super();
-		this.fromDate = fromDate;
-		this.toDate = toDate;
-		this.leaveType = leaveType;
-		this.reason = reason;
-		this.duration = duration;
-		AcceptRejectFlag = acceptRejectFlag;
-		this.users = users;
+
+
+	@Override
+	public String toString() {
+		return "LeaveRequest [leave_id=" + leave_id + ", fromDate=" + fromDate + ", toDate=" + toDate + ", leaveType="
+				+ leaveType + ", reason=" + reason + ", duration=" + duration + ", comments=" + comments
+				+ ", acceptRejectFlag=" + acceptRejectFlag + ", users=" + users + "]";
 	}
 
 
-	
 	
 	
 }
