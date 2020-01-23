@@ -36,9 +36,3 @@
                           Apply Leave Application (Supervisor and User)
 ![image](https://user-images.githubusercontent.com/31030260/73008921-b9d4a400-3e39-11ea-8144-012b41f64ef6.png)
 
-
-Calendar Event Crud Operation
-Application Accept/Reject
-Employee Profile
-Company Leave policy Creation
-View Company leave policy
