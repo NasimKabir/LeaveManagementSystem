@@ -8,9 +8,11 @@
 
                               Leave Policy Creation(Admin)
 ![image](https://user-images.githubusercontent.com/31030260/73007884-85f87f00-3e37-11ea-8df7-1589c5a23511.png)
-                             Add Department Name (Admin)
+
+                            Add Department Name (Admin)
 ![image](https://user-images.githubusercontent.com/31030260/73008333-89d8d100-3e38-11ea-82cd-459ad71b7fd0.png)
-                             Add Department Name (Admin)
+
+                           Add Department Name (Admin)
  ![image](https://user-images.githubusercontent.com/31030260/73008390-aa089000-3e38-11ea-9622-c73c0c070906.png)
  
 Employee Page
