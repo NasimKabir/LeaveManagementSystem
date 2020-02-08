@@ -1,6 +1,7 @@
 package com.nasim.controller;
 
 import java.nio.file.Path;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,16 +16,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.nasim.model.Department;
 import com.nasim.model.Employee_information;
+import com.nasim.model.Role;
 import com.nasim.repository.DepartmentRepository;
 import com.nasim.repository.RoleRepository;
 import com.nasim.service.EmployeeInformationService;
+import com.nasim.util.ImageFileUpload;
 
 @Controller
 public class EmployeeController {
 	@Autowired
 	private EmployeeInformationService empService;
-
 
 	@Autowired
 	private DepartmentRepository departmentRepo;
@@ -36,29 +39,35 @@ public class EmployeeController {
 
 	@GetMapping("/createuser")
 	public String UseRegisterForm(Model model) {
+		List<Role> roleList = roleRepository.findAll();
+		model.addAttribute("employeeRoles", roleList);
+		
+		List<Department> departList = departmentRepo.findAll();
+	
+		model.addAttribute("department", departList);
 		model.addAttribute("user", new Employee_information());
 		return "createUser/createUser";
 	}
 
 	@PostMapping("/success")
 	public String registeringUser(Employee_information emp, Model model, HttpServletRequest request) {
-
-		// emp.setProfilePic(ImageFileUpload.saveImageName(emp.getUserImage(),
-		// emp.getUsername(), request));
+		
+		emp.setProfilePic(ImageFileUpload.saveImageName(emp.getUserImage(), emp.getUsername(), request));
 		empService.createUser(emp);
 		return "successful";
 
 	}
 
 	@GetMapping(value = "/viewUser")
-	public String viewLeavebydepartment(Model model, @RequestParam(defaultValue = "0", name = "page") int page,@RequestParam(defaultValue = "") String name) {
+	public String viewLeavebydepartment(Model model, @RequestParam(defaultValue = "0", name = "page") int page,
+			@RequestParam(defaultValue = "") String name) {
 		Page<Employee_information> users = empService.allUserbyDepartmentname(new PageRequest(page, 8), name);
 		model.addAttribute("user", users);
 		return "user/viewUser";
 	}
 
 	@GetMapping("/deleteUser/{id}")
-	public String deleteUser(@PathVariable("id") int id,Model model) {
+	public String deleteUser(@PathVariable("id") int id, Model model) {
 		empService.getEmployeeOnId(id);
 		empService.deleteUser(id);
 		return "redirect:user/viewUser";

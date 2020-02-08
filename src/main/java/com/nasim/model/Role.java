@@ -17,35 +17,9 @@ public class Role {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int roles_id;
+	private int id;
 	
 	private String name;
-	
-	  
-	public Role(String name) {
-		super();
-		this.name = name;
-	}
-
-
-	public Role() {
-		super();
-	}
-
-
-	public Role(int roles_id, String name) {
-		super();
-		this.roles_id = roles_id;
-		this.name = name;
-	}
-
-
-	@Override
-	public String toString() {
-		return "Role [roles_id=" + roles_id + ", name=" + name + "]";
-	}
-
-
 	
 	
 	

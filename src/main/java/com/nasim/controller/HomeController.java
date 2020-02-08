@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.nasim.model.Employee_information;
 import com.nasim.service.EmployeeInformationService;
-import com.nasim.util.ImageFileUpload;
 
 @Controller
 public class HomeController {

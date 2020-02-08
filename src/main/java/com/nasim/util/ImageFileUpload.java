@@ -12,15 +12,13 @@ public class ImageFileUpload {
 	private static Path path = null;
 
 	public static String saveImageName(MultipartFile file, String fileName, HttpServletRequest request) {
-		String picName = "";
-//		 String rootDirectory = request.getSession().getServletContext().getRealPath("/");
-//         path = Paths.get(rootDirectory + "/LeaveManagement/src/main/resources/static/profilePic" + fileName + ".jpg");
-		path = Paths.get("/LeaveManagement/src/main/resources/static/profilePic" + fileName + ".jpg");
-		System.out.println(path);
+		String picName="";
+		String root=System.getProperty("user.dir");
+    	 path = Paths.get(root+"\\src\\main\\resources\\static\\profilePic\\" + fileName+".jpg" );
 		if (!file.isEmpty()) {
 			try {
 				file.transferTo(new File(path.toString()));
-				picName = fileName + ".jpg";
+				picName=fileName+".jpg";
 			} catch (Exception e) {
 				System.err.println(e);
 			}

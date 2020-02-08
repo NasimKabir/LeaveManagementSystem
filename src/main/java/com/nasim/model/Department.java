@@ -17,15 +17,9 @@ import lombok.Setter;
 public class Department {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int depart_id;
+	private int id;
 	private String name;
 	
-	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Employee_information emp;
-
-	@Override
-	public String toString() {
-		return "Department [depart_id=" + depart_id + ", name=" + name + ", emp=" + emp + "]";
-	}
+	
 
 }

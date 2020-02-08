@@ -11,8 +11,8 @@
 	<div align="center">
 		<h1>Create new user</h1>
 		<br>
-		 <!-- <form action="#" th:action="@{/updatesuccess}" th:object="${user}" method="post" enctype="multipart/form-data"> -->
-		  <form action="#" th:action="@{/updatesuccess}" th:object="${user}" method="post" >
+		 <form action="#" th:action="@{/updatesuccess}" th:object="${user}" method="post" enctype="multipart/form-data">
+		<!--   <form action="#" th:action="@{/updatesuccess}" th:object="${user}" method="post" > -->
     <table class="table">
            <tr>
            <td><input type="hidden" th:field="*{user_id}" /></td></tr>   
@@ -28,10 +28,10 @@
             <td>Email</td>
             <td><input type="email" th:field="*{email}" /></td>
         </tr>
-       <!--  <tr>
+         <tr>
             <td>Image</td>
-            <td><input type="hidden" th:field="*{userImage}" /></td>
-        </tr> -->
+            <td><input type="file" th:field="*{userImage}" /></td>
+        </tr> 
         <tr>
         <td>Role</td>
             <td><select  th:field="*{roles.name}" >
