@@ -44,7 +44,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	
 		
 		http .authorizeRequests().antMatchers("/static/**").permitAll();
-		//http .authorizeRequests().antMatchers("/createuser").hasRole("ADMIN");
+		http .authorizeRequests().antMatchers("/createuser").hasRole("ADMIN");
 		http .authorizeRequests().antMatchers("/viewUser").hasRole("ADMIN");
 		http .authorizeRequests().antMatchers("/jsoncalendar").hasRole("ADMIN");
 		http .authorizeRequests().antMatchers("/view_granteleave").hasRole("ADMIN");

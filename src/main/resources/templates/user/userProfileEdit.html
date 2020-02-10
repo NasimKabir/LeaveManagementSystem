@@ -12,7 +12,7 @@
 
 		<div class="container bootstrap snippet mySpace">
 			<div class="text-left">
-				<img src="profilePic/user.jpg" class="avatar img-circle img-thumbnail" alt="" height="300px" width="300px" />
+				<img class="rounded-circle" th:src="@{/profilePic/{image}(image=${emp.profilePic})}"  width="200" height="200">
 				<h6>Upload a different photo...</h6>
 				<input type="file" class="text-center center-block file-upload" />
 			</div>
