@@ -9,4 +9,5 @@ import com.nasim.model.Department;
 public interface DepartmentRepository extends JpaRepository<Department, Integer> {
 
 	 List<Department> findByName(String name);
+	 Department findById(int id);
 }

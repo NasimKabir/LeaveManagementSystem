@@ -1,6 +1,5 @@
 package com.nasim.controller;
 
-import java.nio.file.Path;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -19,9 +18,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.nasim.model.Department;
 import com.nasim.model.Employee_information;
 import com.nasim.model.Role;
-import com.nasim.repository.DepartmentRepository;
-import com.nasim.repository.RoleRepository;
+import com.nasim.service.DepartmentService;
 import com.nasim.service.EmployeeInformationService;
+import com.nasim.service.RoleService;
 import com.nasim.util.ImageFileUpload;
 
 @Controller
@@ -30,21 +29,19 @@ public class EmployeeController {
 	private EmployeeInformationService empService;
 
 	@Autowired
-	private DepartmentRepository departmentRepo;
-
+	private DepartmentService departmentSevice;
+	
 	@Autowired
-	private RoleRepository roleRepository;
-
-	private Path path;
+	private RoleService roleService;
 
 	@GetMapping("/createuser")
 	public String UseRegisterForm(Model model) {
-		List<Role> roleList = roleRepository.findAll();
+		List<Role> roleList = roleService.allRole();
 		model.addAttribute("employeeRoles", roleList);
 		
-		List<Department> departList = departmentRepo.findAll();
-	
+		List<Department> departList = departmentSevice.findByDepartmentlist();
 		model.addAttribute("department", departList);
+
 		model.addAttribute("user", new Employee_information());
 		return "createUser/createUser";
 	}
@@ -52,7 +49,9 @@ public class EmployeeController {
 	@PostMapping("/success")
 	public String registeringUser(Employee_information emp, Model model, HttpServletRequest request) {
 		
+		System.out.println("Department & role: "+emp.getDepartments().getId()+", "+emp.getRoles().getId());
 		emp.setProfilePic(ImageFileUpload.saveImageName(emp.getUserImage(), emp.getUsername(), request));
+	
 		empService.createUser(emp);
 		return "successful";
 

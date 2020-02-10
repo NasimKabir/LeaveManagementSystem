@@ -33,14 +33,14 @@
       
         <tr>
             <td>Role</td>
-            <td><select  th:field="*{roles.name}" >
-                <option th:each="nam:${employeeRoles}" th:value="${nam.name}" th:text="${nam.name}"></option>
+            <td><select  th:field="*{roles}" >
+                <option th:each="nam:${employeeRoles}" th:value="${nam.id}" th:text="${nam.name}"></option>
           </select></td>
         </tr>
         <tr>
             <td>Department</td>
-            <td><select  th:field="*{departments.name}">
-			   <option th:each="nam:${department}" th:value="${nam.name}" th:text="${nam.name}"></option>
+            <td><select  th:field="*{departments}">
+			   <option th:each="nam:${department}" th:value="${nam.id}" th:text="${nam.name}"></option>
           </select></td>
         </tr> 
         <tr>

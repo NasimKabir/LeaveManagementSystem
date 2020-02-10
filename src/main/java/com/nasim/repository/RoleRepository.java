@@ -10,5 +10,6 @@ import com.nasim.model.Role;
 public interface RoleRepository extends JpaRepository<Role, Integer> {
   
 	List<String> findByName(String username);
+	Role findById(int id);
 
 }

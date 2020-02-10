@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.nasim.model.Department;
 import com.nasim.model.Employee_information;
+import com.nasim.model.Role;
 import com.nasim.repository.DepartmentRepository;
 import com.nasim.repository.EmployeeRepository;
 
@@ -48,4 +49,13 @@ public class EmployeeInformationService {
 		return empRepository.findByUsername(username);
 	}
 
+	public Department getDepartment(int id) {
+		// TODO Auto-generated method stub
+		return empRepository.findByDepartmentsId(id);
+	}
+	
+	public Role getRole(int id) {
+		// TODO Auto-generated method stub
+		return empRepository.findByRolesId(id);
+	}
 }

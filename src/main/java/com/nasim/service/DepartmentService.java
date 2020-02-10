@@ -29,4 +29,9 @@ public class DepartmentService {
 		return departmentRepo.findAll();
 	}
 
+	public Department getDepartment(int id) {
+		// TODO Auto-generated method stub
+		return departmentRepo.findById(id);
+	}
+
 }

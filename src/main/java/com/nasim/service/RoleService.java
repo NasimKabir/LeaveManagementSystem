@@ -25,4 +25,9 @@ public class RoleService {
 		return roleRepo.findAll();
 
 	}
+
+	public Role getRole(int id) {
+		// TODO Auto-generated method stub
+		return roleRepo.findById(id);
+	}
 }

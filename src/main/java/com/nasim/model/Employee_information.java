@@ -28,10 +28,10 @@ public class Employee_information {
 	private String password;
 	private String email;
 
-	@OneToOne(cascade= CascadeType.MERGE,fetch = FetchType.LAZY)
+	@OneToOne(cascade= CascadeType.ALL)
 	private Department departments;
 
-	@OneToOne(cascade= CascadeType.MERGE,fetch = FetchType.LAZY)
+	@OneToOne(cascade= CascadeType.ALL)
 	private Role roles;
 
 
